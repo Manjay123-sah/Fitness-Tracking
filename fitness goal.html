@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitness Tracker</title>
+    <style>
+        body {
+            background-image: url('https://th.bing.com/th/id/OIP.8XLECwYGdt3DBa45yi83RAHaE8?rs=1&pid=ImgDetMain'); 
+  background-size: cover;
+  background-position: center; 
+  background-repeat: no-repeat; 
+  
+ 
+  font-family: 'Arial', sans-serif;
+  color:rgb(50, 205, 89);
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+            font-family: Arial, sans-serif;
+            background-color: #ec7676;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #log-form,
+        #goal-form,
+        #progress {
+            background-color: #887ad0;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+            padding: 20px;
+            box-sizing: border-box;
+            margin: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .form-group button {
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .form-group button:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+
+<div id="goal-form">
+    <h2>Fitness Goals</h2>
+    <div class="form-group">
+        <label for="goalType">Goal Type:</label>
+        <input type="text" id="goalType" name="goalType" placeholder="e.g., Weight Loss">
+    </div>
+    <div class="form-group">
+        <label for="target">Target:</label>
+        <input type="text" id="target" name="target" placeholder="e.g., 10 kg">
+    </div>
+    <div class="form-group">
+        <button type="button" onclick="setGoal()">Set Goal</button>
+    </div>
+</div>
+<script>
+    var goals = [];
+    var progress = 0;
+
+    function setGoal() {
+        var goalType = document.getElementById("goalType").value;
+        var target = document.getElementById("target").value;
+
+        if (goalType === "" || target === "") {
+            alert("Please fill all fields.");
+        } else {
+            goals.push({ type: goalType, target: target });
+            updateProgress();
+            alert("Goal set successfully!\nType: " + goalType + "\nTarget: " + target);
+        }
+    }
+</script>
+
+</body>
+</html>
